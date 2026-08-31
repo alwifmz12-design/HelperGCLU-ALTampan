@@ -41,10 +41,12 @@
                         <input type="text" id="p_fullname" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="Contoh: John Smith">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-slate-400 mb-1">Alasan / Kesalahan (Bisa Tambah)</label>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-xs font-medium text-slate-400">Alasan / Kesalahan (Auto Indo &rarr; Inggris Formal)</label>
+                        </div>
                         <div id="p_reasons_container" class="space-y-2 mb-2">
                             <div class="flex gap-2">
-                                <input type="text" class="p-reason-input w-full bg-slate-900 border border-slate-700 rounded px-3 py-1.5 text-sm" oninput="generateCode()" placeholder="Kesalahan 1">
+                                <input type="text" class="p-reason-input w-full bg-slate-900 border border-slate-700 rounded px-3 py-1.5 text-sm" oninput="autoTranslateInput(this); generateCode();" placeholder="Ketik alasan (Misal: Foto tidak jelas)">
                             </div>
                         </div>
                         <button type="button" onclick="addReasonInput('p_reasons_container', 'p-reason-input')" class="text-xs bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded transition">+ Tambah Alasan</button>
@@ -52,10 +54,14 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Pangkat GCLU</label>
                         <select id="p_rank" onchange="checkCustomRank('p_rank', 'p_custom_rank_wrapper')" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
-                            <option value="GCLU Trainee">GCLU Trainee</option>
-                            <option value="LU STAFF">LU STAFF</option>
+                            <option value="LU Trainee">LU Trainee</option>
+                            <option value="LU Staff">LU Staff</option>
+                            <option value="LU Leader">LU Leader</option>
                             <option value="GCU Trainee">GCU Trainee</option>
                             <option value="GCU Staff">GCU Staff</option>
+                            <option value="GCU Leader">GCU Leader</option>
+                            <option value="GCLU Vice Director">GCLU Vice Director</option>
+                            <option value="GCLU Director">GCLU Director</option>
                             <option value="custom">Custom Pangkat...</option>
                         </select>
                     </div>
@@ -65,6 +71,10 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Nama Officer</label>
                         <input type="text" id="p_officer" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="Nama Anda">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Link Signature (Opsional)</label>
+                        <input type="text" id="p_sig" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="https://i.imgur.com/xxxxx.png">
                     </div>
                 </div>
 
@@ -78,10 +88,12 @@
                         <input type="text" id="d_fullname" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="Contoh: John Smith">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-slate-400 mb-1">Alasan Dideny (Bisa Tambah)</label>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-xs font-medium text-slate-400">Alasan Dideny (Auto Indo &rarr; Inggris Formal)</label>
+                        </div>
                         <div id="d_reasons_container" class="space-y-2 mb-2">
                             <div class="flex gap-2">
-                                <input type="text" class="d-reason-input w-full bg-slate-900 border border-slate-700 rounded px-3 py-1.5 text-sm" oninput="generateCode()" placeholder="Alasan 1">
+                                <input type="text" class="d-reason-input w-full bg-slate-900 border border-slate-700 rounded px-3 py-1.5 text-sm" oninput="autoTranslateInput(this); generateCode();" placeholder="Ketik alasan (Misal: Catatan kriminal)">
                             </div>
                         </div>
                         <button type="button" onclick="addReasonInput('d_reasons_container', 'd-reason-input')" class="text-xs bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded transition">+ Tambah Alasan</button>
@@ -93,10 +105,14 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Pangkat GCLU</label>
                         <select id="d_rank" onchange="checkCustomRank('d_rank', 'd_custom_rank_wrapper')" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
-                            <option value="GCLU Trainee">GCLU Trainee</option>
-                            <option value="LU STAFF">LU STAFF</option>
+                            <option value="LU Trainee">LU Trainee</option>
+                            <option value="LU Staff">LU Staff</option>
+                            <option value="LU Leader">LU Leader</option>
                             <option value="GCU Trainee">GCU Trainee</option>
                             <option value="GCU Staff">GCU Staff</option>
+                            <option value="GCU Leader">GCU Leader</option>
+                            <option value="GCLU Vice Director">GCLU Vice Director</option>
+                            <option value="GCLU Director">GCLU Director</option>
                             <option value="custom">Custom Pangkat...</option>
                         </select>
                     </div>
@@ -106,6 +122,10 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Nama Officer</label>
                         <input type="text" id="d_officer" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="Nama Anda">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Link Signature (Opsional)</label>
+                        <input type="text" id="d_sig" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="https://i.imgur.com/xxxxx.png">
                     </div>
                 </div>
 
@@ -121,10 +141,14 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Pangkat GCLU</label>
                         <select id="a_rank" onchange="checkCustomRank('a_rank', 'a_custom_rank_wrapper')" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
-                            <option value="GCLU Trainee">GCLU Trainee</option>
-                            <option value="LU STAFF">LU STAFF</option>
+                            <option value="LU Trainee">LU Trainee</option>
+                            <option value="LU Staff">LU Staff</option>
+                            <option value="LU Leader">LU Leader</option>
                             <option value="GCU Trainee">GCU Trainee</option>
                             <option value="GCU Staff">GCU Staff</option>
+                            <option value="GCU Leader">GCU Leader</option>
+                            <option value="GCLU Vice Director">GCLU Vice Director</option>
+                            <option value="GCLU Director">GCLU Director</option>
                             <option value="custom">Custom Pangkat...</option>
                         </select>
                     </div>
@@ -134,6 +158,10 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Nama Officer</label>
                         <input type="text" id="a_officer" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="Nama Anda">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Link Signature (Opsional)</label>
+                        <input type="text" id="a_sig" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="https://i.imgur.com/xxxxx.png">
                     </div>
                 </div>
 
@@ -176,10 +204,14 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Pangkat GCLU</label>
                         <select id="nc_rank" onchange="checkCustomRank('nc_rank', 'nc_custom_rank_wrapper')" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
-                            <option value="GCLU Trainee">GCLU Trainee</option>
-                            <option value="LU STAFF">LU STAFF</option>
+                            <option value="LU Trainee">LU Trainee</option>
+                            <option value="LU Staff">LU Staff</option>
+                            <option value="LU Leader">LU Leader</option>
                             <option value="GCU Trainee">GCU Trainee</option>
                             <option value="GCU Staff">GCU Staff</option>
+                            <option value="GCU Leader">GCU Leader</option>
+                            <option value="GCLU Vice Director">GCLU Vice Director</option>
+                            <option value="GCLU Director">GCLU Director</option>
                             <option value="custom">Custom Pangkat...</option>
                         </select>
                     </div>
@@ -189,6 +221,10 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Nama Officer</label>
                         <input type="text" id="nc_officer" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="Nama Anda">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Link Signature (Opsional)</label>
+                        <input type="text" id="nc_sig" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="https://i.imgur.com/xxxxx.png">
                     </div>
                 </div>
 
@@ -241,10 +277,14 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Pangkat GCLU</label>
                         <select id="c_rank" onchange="checkCustomRank('c_rank', 'c_custom_rank_wrapper')" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
-                            <option value="GCLU Trainee">GCLU Trainee</option>
-                            <option value="LU STAFF">LU STAFF</option>
+                            <option value="LU Trainee">LU Trainee</option>
+                            <option value="LU Staff">LU Staff</option>
+                            <option value="LU Leader">LU Leader</option>
                             <option value="GCU Trainee">GCU Trainee</option>
                             <option value="GCU Staff">GCU Staff</option>
+                            <option value="GCU Leader">GCU Leader</option>
+                            <option value="GCLU Vice Director">GCLU Vice Director</option>
+                            <option value="GCLU Director">GCLU Director</option>
                             <option value="custom">Custom Pangkat...</option>
                         </select>
                     </div>
@@ -254,6 +294,10 @@
                     <div>
                         <label class="block text-xs font-medium text-slate-400 mb-1">Nama Officer</label>
                         <input type="text" id="c_officer" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="Nama Anda">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">Link Signature (Opsional)</label>
+                        <input type="text" id="c_sig" oninput="generateCode()" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm focus:outline-none focus:border-blue-500" placeholder="https://i.imgur.com/xxxxx.png">
                     </div>
                 </div>
 
@@ -327,17 +371,59 @@
 
         function addReasonInput(containerId, inputClass) {
             const container = document.getElementById(containerId);
-            if (container.children.length >= 5) return; // Batasi maksimal 5
+            if (container.children.length >= 5) return; 
             const div = document.createElement('div');
             div.className = "flex gap-2";
-            div.innerHTML = `<input type="text" class="${inputClass} w-full bg-slate-900 border border-slate-700 rounded px-3 py-1.5 text-sm" oninput="generateCode()" placeholder="Alasan tambahan...">
+            div.innerHTML = `<input type="text" class="${inputClass} w-full bg-slate-900 border border-slate-700 rounded px-3 py-1.5 text-sm" oninput="autoTranslateInput(this); generateCode();" placeholder="Alasan tambahan...">
                              <button type="button" onclick="this.parentElement.remove(); generateCode();" class="text-xs bg-red-800 hover:bg-red-700 px-2 rounded text-white">X</button>`;
             container.appendChild(div);
         }
 
+        // Kamus penerjemah otomatis real-time Indo ke Inggris Formal
+        const dictionary = {
+            "foto lisensi tidak jelas": "The license photo provided is unclear and blurry",
+            "foto tidak jelas": "The photograph provided is unclear",
+            "kurang lengkap": "The application details are incomplete",
+            "bukti kurang": "Insufficient evidence or documentation provided",
+            "salah format": "The application format is incorrect",
+            "belum memenuhi syarat": "Does not meet the requirements for licensing",
+            "catatan kriminal": "The applicant has an active criminal record",
+            "memiliki catatan kriminal": "The applicant has previous criminal charges",
+            "alasan kesehatan": "Medical or psychological clearance issues",
+            "palsu": "The submitted document appears to be forged or invalid",
+            "tidak valid": "The provided information is invalid",
+            "usia belum cukup": "The applicant does not meet the minimum age requirement",
+            "izin ditolak": "The licensing application has been denied due to background check failure"
+        };
+
+        function translateToFormalEnglish(text) {
+            let lower = text.toLowerCase().trim();
+            if (dictionary[lower]) {
+                return dictionary[lower];
+            }
+            if (lower.includes("foto") || lower.includes("gambar")) {
+                return "The provided photograph or image attachment is invalid or unclear.";
+            }
+            if (lower.includes("pajak") || lower.includes("bayar")) {
+                return "Failure to complete administrative fees or tax requirements.";
+            }
+            if (lower.includes("salah") || lower.includes("keliru")) {
+                return "Contains incorrect information that requires immediate revision.";
+            }
+            return text;
+        }
+
+        function autoTranslateInput(input) {
+            let original = input.value;
+            let translated = translateToFormalEnglish(original);
+            if (translated !== original) {
+                input.value = translated;
+            }
+        }
+
         function addChargeInput() {
             const container = document.getElementById('c_charges_container');
-            if (container.children.length >= 3) return; // Maksimal 3
+            if (container.children.length >= 3) return; 
             const div = document.createElement('div');
             div.className = "p-2 bg-slate-900 border border-slate-700 rounded space-y-2 relative";
             div.innerHTML = `<input type="text" class="c-charge-text w-full bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs" oninput="generateCode()" placeholder="Nama Pasal / Deskripsi">
@@ -357,6 +443,18 @@
             return `${day}/${month}/${year}`;
         }
 
+        function getSignatureBlock(sigUrl, rank, officer) {
+            let sigClean = sigUrl ? sigUrl.trim() : "";
+            if (sigClean !== "") {
+                return `[right]Sincerely, 
+[img]${sigClean}[/img]
+[b]${rank}[/b], [i]${officer}[/i][/right]`;
+            } else {
+                return `[right]Sincerely, 
+[b]${rank}[/b], [i]${officer}[/i][/right]`;
+            }
+        }
+
         function generateCode() {
             let title = "";
             let bbcode = "";
@@ -366,6 +464,7 @@
                 const fullname = document.getElementById('p_fullname').value || 'Nama Costumer';
                 const rank = getRankValue('p_rank', 'p_custom_rank');
                 const officer = document.getElementById('p_officer').value || 'Name';
+                const sigUrl = document.getElementById('p_sig').value;
 
                 title = `[CGC] ${fullname} [PENDING]`;
 
@@ -376,6 +475,8 @@
                     }
                 });
                 if (!reasonsHtml) reasonsHtml = `[*] KESALAHAN YANG HARUS DIA KOREKSI\n`;
+
+                const signBlock = getSignatureBlock(sigUrl, rank, officer);
 
                 bbcode = `[divbox=#F1F1F1][center]
 [img]https://i.imgur.com/iHky2fT.png[/img]
@@ -396,8 +497,7 @@ ${reasonsHtml.trim()}
 [b]Note(s):[/b]
 [list][*]You have 7 days to make things right.[/list]
 
-[right]Yours Sincerely, 
-[b]${rank}[/b], [i]${officer}[/i][/right][/divbox]`;
+${signBlock}[/divbox]`;
 
             } else if (currentTab === 'denied') {
                 const lastname = document.getElementById('d_lastname').value || 'Lastname';
@@ -405,6 +505,7 @@ ${reasonsHtml.trim()}
                 const note = document.getElementById('d_note').value || '(KASIH TAU DIA BISA BUAT BARU ATAU TIDAK)';
                 const rank = getRankValue('d_rank', 'd_custom_rank');
                 const officer = document.getElementById('d_officer').value || 'Name';
+                const sigUrl = document.getElementById('d_sig').value;
 
                 title = `[CGC] ${fullname} [DENIED]`;
 
@@ -415,6 +516,8 @@ ${reasonsHtml.trim()}
                     }
                 });
                 if (!reasonsHtml) reasonsHtml = `[*] ALASAN DIDENY\n`;
+
+                const signBlock = getSignatureBlock(sigUrl, rank, officer);
 
                 bbcode = `[divbox=#F1F1F1][center]
 [img]https://i.imgur.com/iHky2fT.png[/img]
@@ -435,16 +538,18 @@ ${reasonsHtml.trim()}
 [b]Note(s):[/b]
 [list][*] ${note}[/list]
 
-[right]Yours Sincerely, 
-[b]${rank}[/b], [i]${officer}[/i][/right][/divbox]`;
+${signBlock}[/divbox]`;
 
             } else if (currentTab === 'accepted') {
                 const lastname = document.getElementById('a_lastname').value || 'Lastname';
                 const fullname = document.getElementById('a_fullname').value || 'Nama Costumer';
                 const rank = getRankValue('a_rank', 'a_custom_rank');
                 const officer = document.getElementById('a_officer').value || 'Name';
+                const sigUrl = document.getElementById('a_sig').value;
 
                 title = `[CGC] ${fullname} [ADMINISTRATION]`;
+
+                const signBlock = getSignatureBlock(sigUrl, rank, officer);
 
                 bbcode = `[divbox=#F1F1F1][center]
 [img]https://i.imgur.com/iHky2fT.png[/img]
@@ -460,8 +565,7 @@ We've reviewed your application and your record, and after a long deliberation, 
 [b]Note(s):[/b]
 [list][*]You have 7 days to finish your administration.[/list]
 
-[right]Yours Sincerely, 
-[b]${rank}[/b], [i]${officer}[/i][/right][/divbox]`;
+${signBlock}[/divbox]`;
 
             } else if (currentTab === 'nocrime') {
                 const name = document.getElementById('nc_name').value || 'Full Name';
@@ -474,8 +578,11 @@ We've reviewed your application and your record, and after a long deliberation, 
                 const vto = formatDate(document.getElementById('nc_vto').value);
                 const rank = getRankValue('nc_rank', 'nc_custom_rank');
                 const officer = document.getElementById('nc_officer').value || 'Name';
+                const sigUrl = document.getElementById('nc_sig').value;
 
                 title = `[CGC] ${name} [SA-${reg}]`;
+
+                const signBlock = getSignatureBlock(sigUrl, rank, officer);
 
                 bbcode = `[divbox=#F1F1F1][center]
 [img]https://i.imgur.com/iHky2fT.png[/img]
@@ -492,7 +599,7 @@ We've reviewed your application and your record, and after a long deliberation, 
 
 [divbox=#20354C][color=white][center]Checking Result[/center][/color][/divbox]
 
-Based on the MDC check that has been conducted on the person with the information above, it is declared that the person with the information above is [b]clear from any criminal records[/b] during his/her life in the State of San Andreas.
+Based on the MDC check that has been conducted on the person with the information above, it is declared that the person with the information above is [b][color=#00FF00]clear from any criminal records[/color][/b] during his/her life in the State of San Andreas.
 
 [divbox=#20354C][color=white][center]Certificate Information[/center][/color][/divbox]
 
@@ -500,8 +607,7 @@ Based on the MDC check that has been conducted on the person with the informatio
 [*][b]Valid From:[/b] ${vfrom}
 [*][b]Valid To:[/b] ${vto}[/list]
 
-[right]Sincerely, 
-[b]${rank}[/b], [i]${officer}[/i][/right][/divbox]`;
+${signBlock}[/divbox]`;
 
             } else if (currentTab === 'crime') {
                 const name = document.getElementById('c_name').value || 'Full Name';
@@ -514,6 +620,7 @@ Based on the MDC check that has been conducted on the person with the informatio
                 const vto = formatDate(document.getElementById('c_vto').value);
                 const rank = getRankValue('c_rank', 'c_custom_rank');
                 const officer = document.getElementById('c_officer').value || 'Name';
+                const sigUrl = document.getElementById('c_sig').value;
 
                 title = `[CGC] ${name} [SA-${reg}]`;
 
@@ -527,6 +634,8 @@ Based on the MDC check that has been conducted on the person with the informatio
                     chargesHtml = `[*] CHARGES - [b]DD/MMM/YYYY[/b]\n`;
                 }
 
+                const signBlock = getSignatureBlock(sigUrl, rank, officer);
+
                 bbcode = `[divbox=#F1F1F1][center]
 [img]https://i.imgur.com/iHky2fT.png[/img]
 [b][size=125]Administrative Services Bureau - Gun Control and Licensing Unit[/size][/b]
@@ -542,7 +651,7 @@ Based on the MDC check that has been conducted on the person with the informatio
 
 [divbox=#20354C][color=white][center]Checking Result[/center][/color][/divbox]
 
-Based on the MDC check that has been conducted on the person with the information above, it is declared that the person with the information above [b]had been charged for criminal case(s)[/b] before. Latest charge(s):
+Based on the MDC check that has been conducted on the person with the information above, it is declared that the person with the information above [b][color=#BFFF00]had been charged for criminal case(s)[/color][/b] before. Latest charge(s):
 
 [list]
 ${chargesHtml.trim()}
@@ -554,8 +663,7 @@ ${chargesHtml.trim()}
 [*][b]Valid From:[/b] ${vfrom}
 [*][b]Valid To:[/b] ${vto}[/list]
 
-[right]Yours Sincerely, 
-[b]${rank}[/b], [i]${officer}[/i][/right][/divbox]`;
+${signBlock}[/divbox]`;
             }
 
             document.getElementById('output-title').value = title;
